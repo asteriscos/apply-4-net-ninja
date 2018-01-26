@@ -62,9 +62,9 @@ namespace ninja.model.Mock {
                 Type = Invoice.Types.A.ToString()
             });
 
-
+            //Corrección del Id
             Invoice invoice5 = new Invoice() {
-                Id = 1003, Type = Invoice.Types.A.ToString()
+                Id = 1005, Type = Invoice.Types.A.ToString()
             };
 
             invoice5.AddDetail(new InvoiceDetail() { Id = 1001, InvoiceId = 5, Amount = 22, Description = "Venta varias", UnitPrice = 98.1 });
@@ -99,6 +99,21 @@ namespace ninja.model.Mock {
 
         }
 
+        /// <summary>
+        /// Actualiza las propiedades y el detalle de un invoice
+        /// </summary>
+        /// <param name="item"></param>
+        public void Update(Invoice item)
+        {
+            
+            Invoice Modified = this.GetById(item.Id);
+            if (Modified != null) {
+                Modified.Type = item.Type;
+
+                Modified.DeleteDetails();
+                this.AddDetail(item.Id, item.GetDetail());
+            }
+        }
         public Boolean Exists(long id) {
 
             return this._db.Where(x => x.Id == id).Any();

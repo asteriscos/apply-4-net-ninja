@@ -73,7 +73,13 @@ namespace ninja.test {
 
             #region Escribir el código dentro de este bloque
 
-            throw new NotImplementedException();
+            long id = 1004;
+            InvoiceManager manager = new InvoiceManager();
+            manager.Delete(id);
+
+            Invoice result = manager.GetById(id);
+
+            Assert.IsNull(result);
 
             #endregion Escribir el código dentro de este bloque
 

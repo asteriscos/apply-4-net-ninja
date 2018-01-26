@@ -49,6 +49,19 @@ namespace ninja.model.Manager {
 
         }
 
+        public void Update(Invoice item)
+        {
+            /*
+              Este método tiene que actualizar la factura recibida
+             */
+
+            #region Escribir el código dentro de este bloque
+
+            this._mock.Update(item);
+
+            #endregion Escribir el código dentro de este bloque
+        }
+
         public void UpdateDetail(long id, IList<InvoiceDetail> detail) {
 
             /*
@@ -58,7 +71,8 @@ namespace ninja.model.Manager {
 
             #region Escribir el código dentro de este bloque
 
-            throw new NotImplementedException();
+            this._mock.DeleteDetail(id);
+            this._mock.AddDetail(id, detail);
 
             #endregion Escribir el código dentro de este bloque
 

@@ -1,0 +1,33 @@
+﻿@model ninja.model.Entity.Invoice
+
+@{
+    ViewBag.Title = "Detail";    
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Invoice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+    </dl>
+    <hr />
+    @Html.Partial("_DetailItems", Model.GetDetail(),ViewData)
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
